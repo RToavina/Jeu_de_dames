@@ -13,7 +13,7 @@ class Plateau:
             for colonne in range(self.largeur):
                 if (ligne + colonne) % 2 == 1:
                     piece_blanche = Blanc()
-                    piece_blanche.set_position((ligne, colonne))
+                    piece_blanche.position = (ligne, colonne)
                     self.plateau.append(piece_blanche)
 
         #pièces noires
@@ -21,7 +21,7 @@ class Plateau:
             for colonne in range(self.largeur):
                 if (ligne + colonne) % 2 == 1:
                     piece_noire = Noir()
-                    piece_noire.set_position((ligne, colonne))
+                    piece_noire.position = (ligne, colonne)
                     self.plateau.append(piece_noire)
         
         #cases vides
@@ -36,7 +36,7 @@ class Plateau:
         for ligne in range(self.longueur):
             row_display = ""
             for colonne in range(self.largeur):
-                piece = next((p for p in self.plateau if p and p.get_position() == (ligne, colonne)), None)
+                piece = next((p for p in self.plateau if p and p.position == (ligne, colonne)), None)
                 if piece is None:
                     row_display += "[ ] "
                 elif piece.color == "blanc":
@@ -44,3 +44,7 @@ class Plateau:
                 else:
                     row_display += "[N] "
             print(row_display)
+
+    def refresh(self):
+        """Rafraîchit l'affichage du plateau."""
+        self.display()

@@ -1,18 +1,10 @@
+class Piece():
 
-class Piece:
     """Classe représentant une pièce de jeu."""
     def __init__(self):
         """Initialise une pièce avec une position par défaut et une couleur."""
         self.position = None
         self.color = None
-
-    def set_position(self, position):
-        """Définit la position de la pièce."""
-        self.position = position
-
-    def get_position(self):
-        """Retourne la position actuelle de la pièce."""
-        return self.position
 
     def move(self, new_position):
         """Déplace la pièce à une nouvelle position."""
